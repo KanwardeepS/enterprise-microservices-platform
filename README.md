@@ -12,8 +12,7 @@ A monorepo demonstrating production-grade patterns for building consistent, obse
 ├── platform-starters/          # Reusable Spring Boot starter library
 ├── service-template/           # Production-ready microservice template
 ├── authentication-examples/    # Auth mechanism reference implementations
-├── cli-generator/              # CLI tool to scaffold new services
-└── my-chat-customization-project/  # AI agent tooling configuration
+└── cli-generator/              # CLI tool to scaffold new services
 ```
 
 ---
