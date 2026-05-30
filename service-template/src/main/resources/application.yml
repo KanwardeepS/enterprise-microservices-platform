@@ -1,0 +1,129 @@
+
+spring:
+  application:
+    name: sample-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/realms/platform
+
+platform:
+  security:
+    enabled: true
+    required-audience: platform-api
+  db:
+    type: oracle
+    pool:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout-ms: 30000
+      idle-timeout-ms: 600000
+      max-lifetime-ms: 1800000
+  eventing:
+    provider: kafka
+    default-destination: platform.events
+    kafka:
+      topic: platform.events
+      consumer-group: sample-service
+    rabbitmq:
+      exchange: platform.events
+      queue: sample-service.events
+      routing-key: sample-service.events
+  # Observability configuration
+  observability:
+    tracing:
+      enabled: true
+      sampling-rate: 1.0  # 100% for dev/staging, reduce to 0.1 (10%) in production
+      service-name: ${spring.application.name}
+      environment: ${spring.profiles.active:default}
+    metrics:
+      enabled: true
+      jvm-metrics-enabled: true
+      http-metrics-enabled: true
+      db-metrics-enabled: true
+      eventing-metrics-enabled: true
+    logging:
+      request-logging-enabled: false  # Enable for debugging, disable in production
+      request-logging-include-headers: false
+      request-logging-include-payload: false
+      request-logging-excluded-paths:
+        - /actuator/health
+        - /actuator/prometheus
+        - /actuator/metrics
+
+# Spring Boot Actuator configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+      base-path: /actuator
+  endpoint:
+    health:
+      # Enable Kubernetes probes
+      probes:
+        enabled: true
+      # Show health details when authorized
+      show-details: when-authorized
+      # Group health checks for different probe types
+      group:
+        readiness:
+          include: db,kafka,rabbitmq,diskSpace
+          show-details: always
+        liveness:
+          include: ping,diskSpace
+          show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  # Enable detailed metrics
+  metrics:
+    tags:
+      application: ${spring.application.name}
+      environment: ${spring.profiles.active:default}
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+      percentiles:
+        http.server.requests: 0.5,0.95,0.99
+    enable:
+      jvm: true
+      process: true
+      system: true
+      tomcat: true
+      hikaricp: true
+  # Health check configuration
+  health:
+    defaults:
+      enabled: true
+    db:
+      enabled: true
+    diskspace:
+      enabled: true
+  # OpenTelemetry tracing configuration
+  tracing:
+    sampling:
+      probability: ${platform.observability.tracing.sampling-rate:1.0}
+    baggage:
+      enabled: true
+      correlation:
+        enabled: true
+        fields: correlationId
+  otlp:
+    tracing:
+      endpoint: ${OTEL_EXPORTER_OTLP_ENDPOINT:http://localhost:4318/v1/traces}
+      timeout: 10s
+      compression: gzip
+
+# Logging configuration (logback-spring.xml handles JSON format)
+logging:
+  level:
+    root: INFO
+    com.company: DEBUG
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+  pattern:
+    # This will be overridden by logback-spring.xml with JSON format
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg%n"

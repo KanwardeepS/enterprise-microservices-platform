@@ -1,0 +1,33 @@
+# Maven build output
+target/
+*.jar
+*.war
+*.ear
+
+# Maven local repository (should not be committed)
+.m2/
+
+# Maven wrapper credentials
+.mvn/local-settings.xml
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# JVM crash dumps
+hs_err_pid*.log
+replay_pid*.log
+
+# Claude Code internal
+.claude/
+
+# Logs
+*.log
+logs/

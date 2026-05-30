@@ -1,0 +1,5 @@
+com.company.platform.logging.LoggingAutoConfiguration
+com.company.platform.eventing.EventingAutoConfiguration
+com.company.platform.security.SecurityStarterAutoConfiguration
+com.company.platform.db.DbStarterAutoConfiguration
+com.company.platform.observability.ObservabilityAutoConfiguration
