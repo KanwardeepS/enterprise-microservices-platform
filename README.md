@@ -39,10 +39,10 @@ Key files:
 - [OrderController.java](service-template/src/main/java/com/company/service/controller/OrderController.java) — full CRUD example with validation, pagination, and standard responses
 - [application.yml](service-template/src/main/resources/application.yml) — all platform knobs with documented defaults
 
-Deep-dive docs inside the module:
-- [OBSERVABILITY.md](service-template/OBSERVABILITY.md) — logging, tracing, metrics, health checks
-- [API-STANDARDS.md](service-template/API-STANDARDS.md) — REST conventions, error handling, versioning
-- [ADOPTION-GUIDE.md](service-template/ADOPTION-GUIDE.md) — how to distribute and adopt this platform
+Deep-dive docs:
+- [OBSERVABILITY.md](docs/OBSERVABILITY.md) — logging, tracing, metrics, health checks
+- [API-STANDARDS.md](docs/API-STANDARDS.md) — REST conventions, error handling, versioning
+- [ADOPTION-GUIDE.md](docs/ADOPTION-GUIDE.md) — how to distribute and adopt this platform
 
 ### `authentication-examples`
 Standalone, compilable reference implementations for four authentication mechanisms. No framework magic — just clear, focused code you can copy and adapt.
@@ -54,7 +54,7 @@ Standalone, compilable reference implementations for four authentication mechani
 | **Kerberos / SPNEGO** | `KerberosSecurityConfig` |
 | **SSL / TLS** | `KeyCertificateLoader` |
 
-See [authentication-examples/README.md](authentication-examples/README.md) for dependency snippets and usage notes.
+See [docs/DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md) for dependency snippets and usage notes.
 
 ### `cli-generator`
 A PicoCLI-based command-line tool that scaffolds a new service by copying `service-template`, renaming packages, and rewriting `application.yml` for the chosen event provider and database.

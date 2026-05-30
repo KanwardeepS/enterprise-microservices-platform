@@ -62,11 +62,11 @@ curl http://localhost:8080/actuator/prometheus
 
 | Feature | Description | Documentation |
 |---------|-------------|---------------|
-| **Structured Logging** | JSON logs with correlation IDs, MDC fields | [OBSERVABILITY.md](OBSERVABILITY.md#3-structured-logging-guide) |
-| **Distributed Tracing** | OpenTelemetry with W3C trace context | [OBSERVABILITY.md](OBSERVABILITY.md#4-distributed-tracing-guide) |
-| **Metrics** | Prometheus metrics with @Timed support | [OBSERVABILITY.md](OBSERVABILITY.md#5-metrics--monitoring-guide) |
-| **Health Checks** | Kubernetes-ready probes (readiness/liveness) | [OBSERVABILITY.md](OBSERVABILITY.md#6-health-checks--probes) |
-| **Correlation IDs** | Auto-generated UUIDs across all requests | [OBSERVABILITY.md](OBSERVABILITY.md#2-architecture-overview) |
+| **Structured Logging** | JSON logs with correlation IDs, MDC fields | [OBSERVABILITY.md](../docs/OBSERVABILITY.md#3-structured-logging-guide) |
+| **Distributed Tracing** | OpenTelemetry with W3C trace context | [OBSERVABILITY.md](../docs/OBSERVABILITY.md#4-distributed-tracing-guide) |
+| **Metrics** | Prometheus metrics with @Timed support | [OBSERVABILITY.md](../docs/OBSERVABILITY.md#5-metrics--monitoring-guide) |
+| **Health Checks** | Kubernetes-ready probes (readiness/liveness) | [OBSERVABILITY.md](../docs/OBSERVABILITY.md#6-health-checks--probes) |
+| **Correlation IDs** | Auto-generated UUIDs across all requests | [OBSERVABILITY.md](../docs/OBSERVABILITY.md#2-architecture-overview) |
 
 **Zero configuration required** - just use `platform-starters` dependency!
 
@@ -74,12 +74,12 @@ curl http://localhost:8080/actuator/prometheus
 
 | Feature | Description | Documentation |
 |---------|-------------|---------------|
-| **REST Standards** | Resource-oriented URLs, standard HTTP methods | [API-STANDARDS.md](API-STANDARDS.md#2-rest-api-conventions) |
-| **Standard Responses** | Consistent ApiResponse wrapper with metadata | [API-STANDARDS.md](API-STANDARDS.md#3-standard-response-formats) |
-| **Error Handling** | Global exception handler, standard error format | [API-STANDARDS.md](API-STANDARDS.md#4-error-handling--status-codes) |
-| **Validation** | Bean Validation with detailed error messages | [API-STANDARDS.md](API-STANDARDS.md#5-request-validation) |
-| **OpenAPI Docs** | Auto-generated Swagger UI | [API-STANDARDS.md](API-STANDARDS.md#8-openapi-documentation) |
-| **Versioning** | URI-based versioning (/api/v1/) | [API-STANDARDS.md](API-STANDARDS.md#6-api-versioning) |
+| **REST Standards** | Resource-oriented URLs, standard HTTP methods | [API-STANDARDS.md](../docs/API-STANDARDS.md#2-rest-api-conventions) |
+| **Standard Responses** | Consistent ApiResponse wrapper with metadata | [API-STANDARDS.md](../docs/API-STANDARDS.md#3-standard-response-formats) |
+| **Error Handling** | Global exception handler, standard error format | [API-STANDARDS.md](../docs/API-STANDARDS.md#4-error-handling--status-codes) |
+| **Validation** | Bean Validation with detailed error messages | [API-STANDARDS.md](../docs/API-STANDARDS.md#5-request-validation) |
+| **OpenAPI Docs** | Auto-generated Swagger UI | [API-STANDARDS.md](../docs/API-STANDARDS.md#8-openapi-documentation) |
+| **Versioning** | URI-based versioning (/api/v1/) | [API-STANDARDS.md](../docs/API-STANDARDS.md#6-api-versioning) |
 
 ### 🔒 Security
 
@@ -157,9 +157,9 @@ platform-starters/
 
 | Document | Purpose | Audience |
 |----------|---------|----------|
-| **[API-STANDARDS.md](API-STANDARDS.md)** | API design conventions, examples, best practices | All developers |
-| **[OBSERVABILITY.md](OBSERVABILITY.md)** | Logging, tracing, metrics, health checks | Platform/DevOps engineers |
-| **[ADOPTION-GUIDE.md](ADOPTION-GUIDE.md)** | Distribution strategy, adoption tracking, governance | Platform Engineering leaders |
+| **[API-STANDARDS.md](../docs/API-STANDARDS.md)** | API design conventions, examples, best practices | All developers |
+| **[OBSERVABILITY.md](../docs/OBSERVABILITY.md)** | Logging, tracing, metrics, health checks | Platform/DevOps engineers |
+| **[ADOPTION-GUIDE.md](../docs/ADOPTION-GUIDE.md)** | Distribution strategy, adoption tracking, governance | Platform Engineering leaders |
 | **README.md** (this file) | Quick start, architecture overview | New team members |
 
 ### Key Sections
@@ -498,7 +498,7 @@ count by (team) (up{template="service-template"})
 
 ### 📚 Complete Distribution Guide
 
-See **[ADOPTION-GUIDE.md](ADOPTION-GUIDE.md)** for comprehensive instructions on:
+See **[ADOPTION-GUIDE.md](../docs/ADOPTION-GUIDE.md)** for comprehensive instructions on:
 
 - ✅ Setting up distribution channels (Maven, GitHub, CLI)
 - ✅ Onboarding new teams (self-service and guided)
@@ -508,10 +508,10 @@ See **[ADOPTION-GUIDE.md](ADOPTION-GUIDE.md)** for comprehensive instructions on
 - ✅ Training materials and workshops
 
 **Quick Links:**
-- [Distribution Strategy](ADOPTION-GUIDE.md#1-distribution-strategy)
-- [Adoption Tracking](ADOPTION-GUIDE.md#4-adoption-tracking)
-- [Support Channels](ADOPTION-GUIDE.md#51-support-channels)
-- [Success Metrics](ADOPTION-GUIDE.md#6-success-metrics)
+- [Distribution Strategy](../docs/ADOPTION-GUIDE.md#1-distribution-strategy)
+- [Adoption Tracking](../docs/ADOPTION-GUIDE.md#4-adoption-tracking)
+- [Support Channels](../docs/ADOPTION-GUIDE.md#51-support-channels)
+- [Success Metrics](../docs/ADOPTION-GUIDE.md#6-success-metrics)
 
 ---
 
@@ -525,7 +525,7 @@ MIT License - Copyright © 2026 Kanwardeep Singh
 
 ### For Platform Engineering Teams
 
-Want to roll this out organization-wide? See [ADOPTION-GUIDE.md](ADOPTION-GUIDE.md) for:
+Want to roll this out organization-wide? See [ADOPTION-GUIDE.md](../docs/ADOPTION-GUIDE.md) for:
 - Step-by-step distribution setup
 - Automated adoption tracking dashboards
 - Training programs and workshops
@@ -536,12 +536,12 @@ Want to roll this out organization-wide? See [ADOPTION-GUIDE.md](ADOPTION-GUIDE.
 1. **Clone this template:** `git clone <repo-url>`
 2. **Rename package:** `com.company.service` → `com.company.yourservice`
 3. **Update application.yml:** Set `spring.application.name`
-4. **Review [API-STANDARDS.md](API-STANDARDS.md)** for conventions
+4. **Review [API-STANDARDS.md](../docs/API-STANDARDS.md)** for conventions
 5. **Start building!** Controllers, services, repositories
 
 ### For Existing Services
 
-See the [Migration Guide](OBSERVABILITY.md#10-migration-guide) in OBSERVABILITY.md for step-by-step instructions to adopt these features.
+See the [Migration Guide](../docs/OBSERVABILITY.md#10-migration-guide) in OBSERVABILITY.md for step-by-step instructions to adopt these features.
 
 ---
 
